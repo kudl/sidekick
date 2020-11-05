@@ -1,5 +1,6 @@
 package com.example.sidekick.junit5;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,6 +17,7 @@ public class TimeoutTest {
 	}
 
 	@Test
+	@Disabled
 	void timeoutExceeded() {
 		assertTimeout(ofMillis(10), () -> Thread.sleep(100));
 	}
