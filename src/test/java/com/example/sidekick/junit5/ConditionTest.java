@@ -37,5 +37,4 @@ public class ConditionTest {
 	@DisabledIfSystemProperty(named = "test", matches = "true")
 	void onlyTestProperty() {
 	}
-
 }
