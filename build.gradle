@@ -1,12 +1,13 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.5.RELEASE'
+    id 'org.springframework.boot' version '2.4.0'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-    id 'java'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'java'
 }
 
-group = 'com.example'
-version = '0.0.1'
+group = 'com.kudl'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -20,15 +21,45 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    compile 'io.reactivex.rxjava2:rxjava:2.2.6'
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    compile("com.querydsl:querydsl-jpa:4.4.0")
+    compile("com.querydsl:querydsl-apt:4.4.0")
+    compile 'mysql:mysql-connector-java'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.6'
+
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+def generatedSourcesDir = file("${buildDir}/generated/querydsl")
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir generatedSourcesDir
+        }
+    }
+}
+
+querydsl {
+    querydslSourcesDir = relativePath(generatedSourcesDir)
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
 }
 
 test {
