@@ -2,15 +2,15 @@ package com.kudl.sidekick.algorithm.graph;
 
 public class Network {
 
-	public static void main(String[] args) {
-		int n = 3;
-		int[][] computers = {
+	public static void main(final String[] args) {
+		final int n = 3;
+		final int[][] computers = {
 				{1, 1, 0},
 				{1, 1, 0},
 				{0, 0, 0}
 		};
 
-//		int[][] computers = {
+//		final int[][] computers = {
 //				{1, 1, 0},
 //				{1, 1, 1},
 //				{0, 1, 1}
@@ -19,9 +19,9 @@ public class Network {
 		System.out.println(new Network().solution(n, computers));
 	}
 
-	public int solution(int n, int[][] computers) {
+	public int solution(final int n, final int[][] computers) {
 		int answer = 0;
-		boolean[] check = new boolean[n];
+		final boolean[] check = new boolean[n];
 
 		for (int i = 0; i < n; i++) {
 			if (!check[i]) {
@@ -33,7 +33,7 @@ public class Network {
 		return answer;
 	}
 
-	void dfs(int[][] computers, boolean[] check, int start) {
+	void dfs(final int[][] computers, final boolean[] check, final int start) {
 		check[start] = true;
 
 		for (int i = 0; i < computers.length; i++) {
