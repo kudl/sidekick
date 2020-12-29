@@ -11,19 +11,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AWSConfiguration {
 
-	private final AWSProperties awsProperties;
+	private final AWSCustomProperties AWSCustomProperties;
 
-	public AWSConfiguration(final AWSProperties awsProperties) {
-		this.awsProperties = awsProperties;
+	public AWSConfiguration(final AWSCustomProperties AWSCustomProperties) {
+		this.AWSCustomProperties = AWSCustomProperties;
 	}
 
 	@Bean
 	public AmazonSQS amazonSQS() {
-		return AmazonSQSClientBuilder.standard()
+		return AmazonSQSClientBuilder
+				.standard()
 				.withCredentials(new AWSStaticCredentialsProvider(
 								new BasicAWSCredentials(
-										awsProperties.getCredentials().getAccessKey(),
-										awsProperties.getCredentials().getSecretKey())
+										AWSCustomProperties.getCredentials().getAccessKey(),
+										AWSCustomProperties.getCredentials().getSecretKey())
 						)
 				)
 				.withRegion(Regions.AP_NORTHEAST_2)

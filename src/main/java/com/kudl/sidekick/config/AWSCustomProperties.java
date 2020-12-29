@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Configuration
-@EnableConfigurationProperties(AWSProperties.class)
-@ConfigurationProperties(prefix = AWSProperties.PREFIX)
-public class AWSProperties {
+@EnableConfigurationProperties(AWSCustomProperties.class)
+@ConfigurationProperties(prefix = AWSCustomProperties.PREFIX)
+public class AWSCustomProperties {
 	static final String PREFIX = "cloud.aws";
 
 	String sqsUrl;
