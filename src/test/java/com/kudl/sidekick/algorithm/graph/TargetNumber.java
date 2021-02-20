@@ -1,20 +1,21 @@
 package com.kudl.sidekick.algorithm.graph;
 
 public class TargetNumber {
-	public static void main(String[] args) {
-		int[] numbers = {1, 1, 1, 1, 1};
-		int target = 3;
+	public static void main(final String[] args) {
+		final int[] numbers = {1, 1, 1, 1};
+		final int target = 3;
 
 		System.out.println(new TargetNumber().solution(numbers, target));
+
 	}
 
-	public int solution(int[] numbers, int target) {
+	public int solution(final int[] numbers, final int target) {
 		int answer = 0;
 		answer = dfs(numbers, 0, 0, target);
 		return answer;
 	}
 
-	int dfs(int[] numbers, int n, int sum, int target) {
+	int dfs(final int[] numbers, final int n, final int sum, final int target) {
 		if (n == numbers.length) {
 			if (sum == target) {
 				return 1;

@@ -4,21 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Subsets {
-
-	/**
-	 * 부분 집합
-	 *
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		int[] nums = {1, 2, 3};
+	public static void main(final String[] args) {
+		final int[] nums = {1, 2, 3};
 
 		System.out.println(new Subsets().solution(nums));
 	}
 
-	private List<List<Integer>> solution(int[] nums) {
-		List<List<Integer>> answerGroup = new ArrayList<>();
-		List<Integer> answer = new ArrayList<>();
+	private List<List<Integer>> solution(final int[] nums) {
+		final List<List<Integer>> answerGroup = new ArrayList<>();
+		final List<Integer> answer = new ArrayList<>();
 
 		if (nums == null || nums.length == 0) {
 			return answerGroup;
@@ -29,8 +23,8 @@ public class Subsets {
 		return answerGroup;
 	}
 
-	private void dfs(List<List<Integer>> answerGroup, List<Integer> answer, int[] nums, int start) {
-		List<Integer> result = new ArrayList<>(answer);
+	private void dfs(final List<List<Integer>> answerGroup, final List<Integer> answer, final int[] nums, final int start) {
+		final List<Integer> result = new ArrayList<>(answer);
 		answerGroup.add(result);
 
 		for (int i = start; i < nums.length; i++) {

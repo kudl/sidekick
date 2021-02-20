@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Permutation {
 
-	public static void main(String[] args) {
-		int[] nums = {1, 2, 3};
+	public static void main(final String[] args) {
+		final int[] nums = {1, 2, 3};
 
 		System.out.println(new Permutation().solution(nums));
 	}
 
-	private List<List<Integer>> solution(int[] nums) {
-		List<List<Integer>> answer = new ArrayList<>();
-		List<Integer> list = new ArrayList<>();
+	private List<List<Integer>> solution(final int[] nums) {
+		final List<List<Integer>> answer = new ArrayList<>();
+		final List<Integer> list = new ArrayList<>();
 		if (nums == null || nums.length == 0) {
 			return answer;
 		}
@@ -23,18 +23,13 @@ public class Permutation {
 		return answer;
 	}
 
-	private void dfs(int[] nums, List<List<Integer>> answer, List<Integer> current) {
+	private void dfs(final int[] nums, final List<List<Integer>> answer, final List<Integer> current) {
 		if (current.size() == nums.length) {
-			List<Integer> list = new ArrayList<>(current);
+			final List<Integer> list = new ArrayList<>(current);
 			answer.add(list);
 		}
 
 		for (int i = 0; i < nums.length; i++) {
-//			모두 뽑기
-//			if(current.size() == nums.length) {
-//				continue;
-//			}
-
 			if (current.contains(nums[i])) {
 				continue;
 			}
