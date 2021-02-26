@@ -1,3 +1,39 @@
+logging:
+  level:
+    root: INFO
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: kudl
+    url: jdbc:mysql://127.0.0.1:3306/kudlwork?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: kudl
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      format_sql: true
+    open-in-view: false
+    show-sql: true
+  output:
+    ansi:
+      enabled: ALWAYS
+  profiles:
+    include:
+      - aws
+      - okta
+#  redis:
+#    host: localhost
+#    port: 6379
+
+graphql:
+  spqr:
+    gui:
+      enabled: true
+
 app:
   connect-timeout: 500ms
   description: ${app.name} is a spring boot app that demonstrates how to use external
@@ -17,31 +53,3 @@ app:
     roles: 'USER,ADMIN,PARTNER   # List Property'
     username: callicoder
   upload-dir: /uploads
-logging:
-  level:
-    root: INFO
-    com:
-      amazonaws:
-        util:
-          EC2MetadataUtils: error
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: kudl
-    url: jdbc:mysql://127.0.0.1:3306/kudlwork?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: kudl
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      format_sql: true
-    open-in-view: false
-    show-sql: true
-  output:
-    ansi:
-      enabled: ALWAYS
-  profiles:
-    include:
-      - aws
-#  redis:
-#    host: localhost
-#    port: 6379

@@ -41,10 +41,15 @@ dependencies {
     // aws sqs end
 
     // graphql start
-    implementation 'com.graphql-java:graphql-java:11.0'
-    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0'
-    implementation 'com.google.guava:guava:26.0-jre'
+//    implementation 'com.graphql-java:graphql-java:11.0'
+//    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0'
+    implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter:0.0.5'
+//    implementation 'com.google.guava:guava:26.0-jre'
     // graphql end
+
+    // okta start
+//    implementation 'com.okta.spring:okta-spring-boot-starter:2.0.1'
+    // okta end
 
     compile("com.querydsl:querydsl-jpa:4.4.0")
     compile("com.querydsl:querydsl-apt:4.4.0")
