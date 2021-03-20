@@ -4,20 +4,30 @@ logging:
     com:
       amazonaws:
         util:
-          EC2MetadataUtils: error
+          EC2MetadataUtils: ERROR
+    org:
+      hibernate:
+        sql: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: kudl
     password: kudl
     url: jdbc:mysql://127.0.0.1:3306/kudlwork?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: kudl
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      format_sql: true
     open-in-view: false
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
   output:
     ansi:
       enabled: ALWAYS
@@ -36,9 +46,8 @@ graphql:
 
 app:
   connect-timeout: 500ms
-  description: ${app.name} is a spring boot app that demonstrates how to use external
-    configuration properties
-  name: ConfigurationPropertiesDemoApp
+  description: ${app.name} sample
+  name: Properties Sample
   read-timeout: 10s
   security:
     enabled: true

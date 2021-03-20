@@ -7,3 +7,5 @@ The sidekick project is a project written for various sample codes.
 * [kotlin](https://github.com/kudl/sidekick/tree/main/src/main/java/com/kudl/sidekick/akotlin)
 * [junit5](https://github.com/kudl/sidekick/tree/main/src/test/java/com/kudl/sidekick/junit5)
 * [ddd](https://github.com/kudl/sidekick/tree/main/src/test/java/com/kudl/sidekick/ddd)
+* [pattern](https://github.com/kudl/sidekick/tree/main/src/main/java/com/kudl/sidekick/pattern)
+* [graphql](https://github.com/kudl/sidekick/tree/main/src/main/java/com/kudl/sidekick/graphql)
