@@ -56,11 +56,15 @@ dependencies {
     compile 'mysql:mysql-connector-java'
     compile 'io.reactivex.rxjava2:rxjava:2.2.6'
 
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
 def generatedSourcesDir = file("${buildDir}/generated/querydsl")
